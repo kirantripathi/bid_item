@@ -1,7 +1,7 @@
 import { connectToDatabase } from "@/db/index";
 import mongoose, { Types } from "mongoose";
 import Bid, { BidType } from "@/db/model/bids.model";
-import { desc, eq } from "drizzle-orm";
+
 
 export async function getBidsForItem(itemId: string) {
   try {

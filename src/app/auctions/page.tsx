@@ -6,7 +6,7 @@ import { getAlUserAuctionItem } from "@/data-access/items";
 import { ItemType } from "@/db/model/items.model";
 
 import { pageTitleStyles } from "@/styles";
-import { eq } from "drizzle-orm";
+
 
 export default async function MyAuctionPage() {
   const session = await auth();
