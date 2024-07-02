@@ -1,7 +1,6 @@
 "use server";
 
 import { auth } from "@/auth";
-import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 import { Knock } from "@knocklabs/node";

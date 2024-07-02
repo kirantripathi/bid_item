@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  createItemAction,
-  createUploadUrlAction,
-} from "@/app/items/create/actions";
+import { createItemAction } from "@/app/items/create/actions";
 import { DatePickerDemo } from "@/components/date-picker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
