@@ -10,7 +10,7 @@ export function ItemCard({ item }: { item: ItemDoc }) {
   console.log(item, "ee the val");
 
   return (
-    <div key={item._id} className="border  p-8  rounded-xl space-y-2 shadow-md">
+    <div className="border  p-8  rounded-xl space-y-2 shadow-md">
       <Image
         src={item.fileKey !== "undefined" ? item.fileKey : "/logo.png"}
         alt={item.name}
