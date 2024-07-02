@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ItemDoc } from "@/db/model/items.model";
-import { Item } from "@/db/schema";
 import { isBidOver } from "@/util/bids";
 import { formatToDollar } from "@/util/currency";
-import { getImageUrl } from "@/util/files";
 import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
