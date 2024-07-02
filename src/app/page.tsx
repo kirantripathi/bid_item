@@ -1,6 +1,5 @@
 import { ItemCard } from "@/app/item-card";
 import { getAlAuctionItem } from "@/data-access/items";
-import { database } from "@/db/database";
 import { EmptyState } from "./auctions/empty-state";
 
 export default async function HomePage() {

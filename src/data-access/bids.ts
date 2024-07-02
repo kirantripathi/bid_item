@@ -2,7 +2,6 @@ import { connectToDatabase } from "@/db/index";
 import mongoose, { Types } from "mongoose";
 import Bid, { BidType } from "@/db/model/bids.model";
 
-
 export async function getBidsForItem(itemId: string) {
   try {
     await connectToDatabase();
