@@ -72,13 +72,13 @@ export function Header() {
                           onClick={() => {
                             setIsVisible(false);
                           }}
-                          href={`/items/${item.data.bidUpdate.itemId}`}
+                          href={`/items/${item?.data?.bidUpdate.itemId}`}
                         >
                           Someone outbidded you on{" "}
                           <span className="font-bold">
-                            {item.data.bidUpdate.itemName}
+                            {item?.data?.bidUpdate.itemName}
                           </span>{" "}
-                          by ${formatToDollar(item.data.bidUpdate.amount)}
+                          by ${formatToDollar(item?.data?.bidUpdate?.amount)}
                         </Link>
                       </div>
                     </NotificationCell>
@@ -88,7 +88,7 @@ export function Header() {
             </>
           )}
 
-          {session?.data?.user.image && (
+          {session?.data?.user?.image && (
             <Image
               src={session.data.user.image}
               width="40"
