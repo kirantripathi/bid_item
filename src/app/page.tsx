@@ -14,7 +14,7 @@ export default async function HomePage() {
 
       {allItems.length > 0 ? (
         <div className="grid grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {allItems.map((item) => (
+          {allItems.map((item: any) => (
             <ItemCard key={item._id} item={item} />
           ))}
         </div>
