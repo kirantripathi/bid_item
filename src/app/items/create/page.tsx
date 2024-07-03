@@ -7,9 +7,12 @@ import { Input } from "@/components/ui/input";
 import { pageTitleStyles } from "@/styles";
 import { getCloudinaryImageUrl } from "@/util/getCloudinaryUrl";
 import { useState } from "react";
+import { Loader2 } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default function CreatePage() {
   const [date, setDate] = useState<Date | undefined>();
+  const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <main className="space-y-8 flex items-center flex-col ">
@@ -23,6 +26,7 @@ export default function CreatePage() {
           if (!date) {
             return;
           }
+          setLoading(true);
 
           const form = e.currentTarget as HTMLFormElement;
 
@@ -75,7 +79,12 @@ export default function CreatePage() {
           Pick a Date
         </label>
         <DatePickerDemo id="date" date={date} setDate={setDate} />
-        <Button className="self-center bg-green-500" type="submit">
+        <Button
+          disabled={loading}
+          className="self-center bg-green-500"
+          type="submit"
+        >
+          {loading && <Loader2 size={16} className="animate-spin" />}
           Post Item
         </Button>
       </form>

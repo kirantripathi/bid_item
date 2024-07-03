@@ -11,12 +11,15 @@ export function ItemCard({ item }: { item: ItemDoc }) {
 
   return (
     <div className="border  p-8  rounded-xl space-y-2 shadow-md">
-      <Image
-        src={item.fileKey !== "undefined" ? item.fileKey : "/logo.png"}
-        alt={item.name}
-        width={200}
-        height={200}
-      />
+      <div className="w-[200px] h-[200px]  flex self-center">
+        <Image
+          style={{ objectFit: "contain" }}
+          src={item.fileKey !== "undefined" ? item.fileKey : "/logo.png"}
+          alt={item.name}
+          width={200}
+          height={200}
+        />
+      </div>
 
       <h2 className="text-xl font-bold truncate">{item.name.toUpperCase()}</h2>
       <p className="text-lg">
