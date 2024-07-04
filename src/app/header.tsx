@@ -25,7 +25,7 @@ export function Header() {
         <div className="flex items-center gap-12">
           <Link href="/" className="hover:underline flex items-center gap-1">
             <Image src="/logo.png" width="50" height="50" alt="Logo" />
-            BidBuddy.com
+            CheapBid.com
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -47,6 +47,13 @@ export function Header() {
                   className="hover:underline flex items-center gap-1"
                 >
                   My Auctions
+                </Link>
+
+                <Link
+                  href="/feedback"
+                  className="hover:underline flex items-center gap-1"
+                >
+                  FeedBack
                 </Link>
               </>
             )}

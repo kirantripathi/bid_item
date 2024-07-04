@@ -27,6 +27,11 @@ export function ItemCard({ item }: { item: ItemDoc }) {
         {formatToDollar(item.startingPrice)}
       </p>
 
+      <p className="text-lg">
+        <span className="font-bold">Current Price:</span> $
+        {formatToDollar(item.currentBid)}
+      </p>
+
       {isBidOver(item) ? (
         <p className="text-lg">Bidding is Over</p>
       ) : (

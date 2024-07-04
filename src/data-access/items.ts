@@ -2,6 +2,7 @@ import { Types } from "mongoose";
 import { connectToDatabase } from "@/db/index";
 import { Item } from "@/db/model/items.model";
 import { User } from "next-auth";
+import FeedBack from "@/db/model/feedback.model";
 
 export async function getAlAuctionItem() {
   try {
@@ -90,5 +91,40 @@ export async function updateItem({
     );
   } catch (error) {
     console.log(error, "error updating item");
+  }
+}
+
+export async function insertFeedBack({
+  feedBack,
+  user,
+}: {
+  feedBack: string;
+  user: User;
+}) {
+  try {
+    await connectToDatabase();
+
+    console.log(user, feedBack, "see got info");
+    const newItem = new FeedBack({
+      feedBack,
+      userId: user.id,
+    });
+
+    const savedItem = await newItem.save();
+
+    let response = {
+      status: 200,
+      data: savedItem,
+    };
+
+    return JSON.parse(JSON.stringify(response));
+  } catch (error) {
+    const response = {
+      status: 500,
+      errorMessage:
+        error instanceof Error ? error.message : "An unknown error occurred",
+    };
+
+    return JSON.parse(JSON.stringify(response));
   }
 }
