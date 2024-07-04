@@ -10,6 +10,7 @@ import { formatToDollar } from "@/util/currency";
 import { formatDistance } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import FormPage from "./formPage";
 
 function formatTimestamp(timestamp: Date) {
   return formatDistance(timestamp, new Date(), { addSuffix: true });
@@ -44,8 +45,6 @@ export default async function ItemPage({
   }
 
   const allBids = await getBidsForItem(item._id);
-
-  console.log(allBids, "See all bids first");
 
   const hasBids = allBids.length > 0;
 
@@ -100,15 +99,17 @@ export default async function ItemPage({
           <div className="flex justify-between">
             <h2 className="text-2xl font-bold">Current Bids</h2>
             {canPlaceBid && (
-              <form action={createBidAction.bind(null, item._id)}>
-                <Button>Place a Bid</Button>
-              </form>
+              // <form action={createBidAction.bind(null, item._id)}>
+              //   <Button>Place a Bid</Button>
+              // </form>
+
+              <FormPage itemId={item._id} />
             )}
           </div>
 
           {hasBids ? (
             <ul className="space-y-4 overflow-y-scroll  max-h-[70vh] no-scrollbar">
-              {allBids.map((bid:any) => (
+              {allBids.map((bid: any) => (
                 <li key={bid._id} className="bg-gray-100 rounded-xl p-8">
                   <div className="flex gap-4">
                     <div>
@@ -135,9 +136,10 @@ export default async function ItemPage({
               />
               <h2 className="text-2xl font-bold">No bids yet</h2>
               {canPlaceBid && (
-                <form action={createBidAction.bind(null, item._id)}>
-                  <Button>Place a Bid</Button>
-                </form>
+                // <form action={createBidAction.bind(null, item._id)}>
+                //   <Button>Place a Bid</Button>
+                // </form>
+                <FormPage itemId={item._id} />
               )}
             </div>
           )}
