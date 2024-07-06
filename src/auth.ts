@@ -48,11 +48,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: MongooseAdapter(connectToDatabase) as Adapter,
 
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       console.log(session, "see it");
       console.log(user, "see too");
       // @ts-ignore
       session.user.id = user?._id;
+
+      //send email too  user after callback
 
       return session;
     },

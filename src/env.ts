@@ -11,6 +11,7 @@ export const env = createEnv({
     AUTH_SECRET: z.string().min(1),
     FACEBOOK_CLIENT_SECRET: z.string().min(1),
     FACEBOOK_CLIENT_ID: z.string().min(1),
+   
   },
   client: {
     NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY: z.string().min(1),
@@ -24,6 +25,7 @@ export const env = createEnv({
   },
 
   runtimeEnv: {
+ 
     FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
     FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,

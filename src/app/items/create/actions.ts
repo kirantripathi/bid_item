@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { insertItem } from "@/data-access/items";
+import { POST } from "@/app/api/send/route";
 
 export async function createItemAction({
   fileName,
@@ -35,6 +36,10 @@ export async function createItemAction({
     user,
     endDate,
   });
+
+  if (user && user.email) {
+    await POST({ email: user.email, userName: session?.user?.name ?? "User" });
+  }
 
   redirect("/");
 }
