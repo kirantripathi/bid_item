@@ -29,15 +29,15 @@ export async function createItemAction({
     throw new Error("Unauthorized");
   }
 
-  await insertItem({
-    name,
-    startingPrice,
-    fileName,
-    user,
-    endDate,
-  });
-
   try {
+    await insertItem({
+      name,
+      startingPrice,
+      fileName,
+      user,
+      endDate,
+    });
+
     await fetch("https://bid-item.vercel.app/api/send", {
       method: "POST",
       headers: {
