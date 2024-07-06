@@ -45,7 +45,7 @@ const Page = () => {
         <Textarea
           id="feedback"
           required
-          className="mt-5 h-[40vh] text-lg border-2 border-black"
+          className="mt-5 h-[40vh] text-lg border-2 border-black dark:border-white"
           name="feedback"
           placeholder="Add Your Feedback"
         />

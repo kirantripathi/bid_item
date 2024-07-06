@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/app/header";
 import { SessionProvider } from "next-auth/react";
 import { AppKnockProviders } from "@/app/knock-provider";
+import { ThemeProvider } from "@/components/themeProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,12 +30,21 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <SessionProvider>
-          <AppKnockProviders>
-            <Header />
-            <div className="container h-screen  mx-auto py-12">{children}</div>
-          </AppKnockProviders>
-        </SessionProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SessionProvider>
+            <AppKnockProviders>
+              <Header />
+              <div className="container h-screen  mx-auto py-12">
+                {children}
+              </div>
+            </AppKnockProviders>
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

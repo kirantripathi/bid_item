@@ -1,5 +1,6 @@
 "use client";
 
+import { ModeToggle } from "@/components/ThemToggleButton";
 import { Button } from "@/components/ui/button";
 import { formatToDollar } from "@/util/currency";
 import {
@@ -20,7 +21,7 @@ export function Header() {
   const userId = session?.data?.user?.id;
 
   return (
-    <div className="bg-gray-200 py-2">
+    <div className="bg-gray-200 dark:bg-black py-2">
       <div className="container flex justify-between items-center">
         <div className="flex items-center gap-12">
           <Link href="/" className="hover:underline flex items-center gap-1">
@@ -105,6 +106,9 @@ export function Header() {
             />
           )}
           <div>{session?.data?.user?.name}</div>
+
+          <ModeToggle />
+
           <div>
             {userId ? (
               <Button

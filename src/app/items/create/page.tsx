@@ -19,7 +19,7 @@ export default function CreatePage() {
       <h1 className={pageTitleStyles}>Post Item For Auction</h1>
 
       <form
-        className="flex flex-col border p-8 rounded-xl space-y-4 w-[80vw] xl:w-[50vw] items-center bg-gray-200"
+        className="flex flex-col border p-8 rounded-xl space-y-4 w-[80vw] xl:w-[50vw] items-center bg-gray-200 dark:bg-black"
         onSubmit={async (e) => {
           e.preventDefault();
 

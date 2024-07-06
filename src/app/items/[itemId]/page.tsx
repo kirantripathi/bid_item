@@ -110,7 +110,7 @@ export default async function ItemPage({
           {hasBids ? (
             <ul className="space-y-4 overflow-y-scroll  max-h-[70vh] no-scrollbar">
               {allBids.map((bid: any) => (
-                <li key={bid._id} className="bg-gray-100 rounded-xl p-8">
+                <li key={bid._id} className="bg-gray-100 dark:bg-black rounded-xl p-8">
                   <div className="flex gap-4">
                     <div>
                       <span className="font-bold">

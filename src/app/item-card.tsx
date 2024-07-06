@@ -6,7 +6,13 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-export function ItemCard({ item }: { item: ItemDoc }) {
+export function ItemCard({
+  item,
+  myAuction,
+}: {
+  item: ItemDoc;
+  myAuction?: boolean;
+}) {
   console.log(item, "ee the val");
 
   return (
@@ -48,7 +54,7 @@ export function ItemCard({ item }: { item: ItemDoc }) {
           variant={isBidOver(item) ? "outline" : "default"}
         >
           <Link href={`/items/${item._id}`}>
-            {isBidOver(item) ? "View Bid" : "Place Bid"}
+            {myAuction || isBidOver(item) ? "View Bid" : "Place Bid"}
           </Link>
         </Button>
       </div>
