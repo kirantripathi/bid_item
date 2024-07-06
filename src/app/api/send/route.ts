@@ -29,9 +29,9 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    let success = await transporter.sendMail(mailOptions);
-    return NextResponse.json({ success: success }, { status: 200 });
+    await transporter.sendMail(mailOptions);
+    return NextResponse.json({ status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: "Email Sent Fail" }, { status: 500 });
+    return NextResponse.json({ status: 500 });
   }
 }
