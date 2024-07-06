@@ -38,7 +38,16 @@ export async function createItemAction({
   });
 
   if (user && user.email) {
-    await POST({ email: user.email, userName: session?.user?.name ?? "User" });
+    await fetch("https://bid-item.vercel.app/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: user.email,
+        userName: session?.user?.name ?? "User",
+      }),
+    });
   }
 
   redirect("/");
