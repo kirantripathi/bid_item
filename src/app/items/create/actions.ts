@@ -37,7 +37,7 @@ export async function createItemAction({
     endDate,
   });
 
-  if (user && user.email) {
+  try {
     await fetch("https://bid-item.vercel.app/api/send", {
       method: "POST",
       headers: {
@@ -48,7 +48,9 @@ export async function createItemAction({
         userName: session?.user?.name ?? "User",
       }),
     });
+  } catch (err) {
+    console.log(err, "see error while calling api");
+  } finally {
+    redirect("/");
   }
-
-  redirect("/");
 }
