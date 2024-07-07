@@ -56,6 +56,7 @@ export async function createItemAction({
     console.log(err, "See wrror in catch blow item savae");
   } finally {
     console.log("finally calaled");
+    revalidatePath("/");
     redirect("/");
   }
 }
