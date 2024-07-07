@@ -6,8 +6,6 @@ import { redirect } from "next/navigation";
 import { insertItem } from "@/data-access/items";
 import { POST } from "@/app/api/send/route";
 
-export const maxDuration = 60;
-
 export async function createItemAction({
   fileName,
   name,
