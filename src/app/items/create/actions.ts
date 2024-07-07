@@ -30,6 +30,7 @@ export async function createItemAction({
   }
 
   try {
+    alert("saved item called")
     let savedItemResponse = await insertItem({
       name,
       startingPrice,
@@ -37,6 +38,8 @@ export async function createItemAction({
       user,
       endDate,
     });
+
+    alert("saved item respomse")
 
     console.log(savedItemResponse, "See the response plz");
 
