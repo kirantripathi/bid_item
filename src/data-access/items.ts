@@ -63,7 +63,7 @@ export async function insertItem({
     });
     const savedItem = await newItem.save();
 
-    return savedItem;
+    return { status: 200, savedItem };
   } catch (error) {
     console.log(error, "error creating item");
   }

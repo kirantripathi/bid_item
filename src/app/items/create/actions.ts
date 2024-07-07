@@ -30,7 +30,7 @@ export async function createItemAction({
   }
 
   try {
-    await insertItem({
+    let savedItemResponse = await insertItem({
       name,
       startingPrice,
       fileName,
@@ -38,19 +38,23 @@ export async function createItemAction({
       endDate,
     });
 
-    // await fetch("https://bid-item.vercel.app/api/send", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     email: user.email,
-    //     userName: session?.user?.name ?? "User",
-    //   }),
-    // });
+    console.log(savedItemResponse, "See the response plz");
+
+    if (savedItemResponse?.status == 200) {
+      //send email once product is added to db
+      await fetch("https://bid-item.vercel.app/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          userName: session?.user?.name ?? "User",
+        }),
+      });
+    }
   } catch (err) {
     console.log(err, "see error while calling api");
-  } finally {
-    redirect("/");
   }
+  redirect("/");
 }
