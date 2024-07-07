@@ -66,6 +66,7 @@ export async function insertItem({
     return { status: 200, savedItem };
   } catch (error) {
     console.log(error, "error creating item");
+    return { status: 500 };
   }
 }
 
