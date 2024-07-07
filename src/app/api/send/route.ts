@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const maxDuration = 60;
+
 export async function POST(req: NextRequest) {
   const { email, userName } = await req.json();
 
