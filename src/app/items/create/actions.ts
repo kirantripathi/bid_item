@@ -54,6 +54,7 @@ export async function createItemAction({
     }
     redirect("/");
   } catch (err) {
+    console.log(err, "See wrror in catch blow item savae");
     if (err || isRedirectError(err)) {
       redirect("/");
     }
