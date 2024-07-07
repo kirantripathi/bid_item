@@ -5,6 +5,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { insertItem } from "@/data-access/items";
 import { POST } from "@/app/api/send/route";
+import { isRedirectError } from "next/dist/client/components/redirect";
 
 export async function createItemAction({
   fileName,
@@ -30,7 +31,6 @@ export async function createItemAction({
   }
 
   try {
-    alert("saved item called")
     let savedItemResponse = await insertItem({
       name,
       startingPrice,
@@ -38,10 +38,6 @@ export async function createItemAction({
       user,
       endDate,
     });
-
-    alert("saved item respomse")
-
-    console.log(savedItemResponse, "See the response plz");
 
     if (savedItemResponse?.status == 200) {
       //send email once product is added to db
@@ -56,8 +52,10 @@ export async function createItemAction({
         }),
       });
     }
+    redirect("/");
   } catch (err) {
-    console.log(err, "see error while calling api");
+    if (err || isRedirectError(err)) {
+      redirect("/");
+    }
   }
-  redirect("/");
 }

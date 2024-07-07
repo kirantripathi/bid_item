@@ -47,7 +47,7 @@ export default function CreatePage() {
           const startingPriceInCents = Math.floor(startingPrice * 100);
           const fileName = formData.get("file") as string;
 
-          await createItemAction({
+          let response = await createItemAction({
             name,
             startingPrice: startingPriceInCents,
             fileName,
