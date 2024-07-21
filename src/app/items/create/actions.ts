@@ -52,8 +52,10 @@ export async function createItemAction({
         }),
       });
     }
+    return JSON.parse(JSON.stringify(savedItemResponse));
   } catch (err) {
     console.log(err, "See wrror in catch blow item savae");
+    return err;
   } finally {
     console.log("finally calaled");
     revalidatePath("/");
